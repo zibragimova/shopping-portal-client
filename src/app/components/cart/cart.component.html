@@ -1,0 +1,54 @@
+<p>
+  cart works!
+</p>
+<div class="container" >
+    
+    <div class="row">
+        <div class="col-md-8">            
+                  <h4>SHOPPING ITEMS: 1 of 4 steps</h4>
+                  <div class="row checkout_row"     *ngFor="let item of cartItems">
+                    <div class=" col-md-2 text-center">
+                        <img src="{{item.product.image}}"
+                              class="product_image"/>
+                    </div>
+                    <div class="col-md-2 ">
+                        <span class="text--bold js-product-name">{{item.product.productName}}</span>
+                        <p class="js-product-desc">{{item.product.description}}</p>
+                    </div>
+                    <div class="col-md-2  text-right">
+                        <p class="text--red js-product-costs">{{item.quantity}} x {{item.product.price | currency:'USD':true}}</p>
+                    </div>
+                    <div class="col-md-2 text-right">
+                        <p class="text--bold text--red js-product-total">{{item.totalCost | currency:'USD':true}}</p>
+                    </div>
+                  </div>
+                
+                  
+
+
+        </div>
+        <div class="col-4">
+            <div class="row">
+                <div class="">
+                  <h3>
+                    <i class="fa fa-shopping-cart"></i> 
+                    Your Shopping Basket
+                  </h3>
+                  <br>
+                  <h5>
+                      Sub Total ({{itemCount}} items):
+                      <span >
+                        {{(cart | async).grossTotal | currency:'GBP':true}}
+                      </span>
+                    </h5>
+                </div>
+              </div>
+              
+        </div>
+      
+      
+      </div>      
+
+</div>
+
+

@@ -1,0 +1,11 @@
+.card-footer .left {
+    float: left;
+  }
+  
+   .card-footer .right {
+    float: right;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }

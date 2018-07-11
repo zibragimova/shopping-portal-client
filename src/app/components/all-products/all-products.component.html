@@ -1,0 +1,76 @@
+<div class="container">
+
+    <div class = "col-md-2 ">
+        <div class='row'>
+            <div class='col-sm-12'>
+                <h3>
+                   FILTERS
+                </h3>
+            </div>
+        </div>    
+        <div class="form-group">
+            <label for="cat_select">By category:</label>
+            <select class="form-control" name="" id="cat_select" [(ngModel)]="selectedCategory">
+            <option *ngFor="let category of allCategories" [ngValue]="category">{{category}}</option>
+            </select>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">Rings </li>
+            <li class="list-group-item">Necklace</li>
+            <li class="list-group-item">Bracelet</li>
+        </ul>
+                  
+        <!-- <div class="list-group list-group-flush">
+            <button type="button" class="list-group-item list-group-item-action"><a [routerLink]="['/all-products']" href="">ALL PRODUCTS</a> </button>
+            <button type="button" class="list-group-item list-group-item-action"><a [routerLink]="['/rings']" href="">Rings</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a [routerLink]="['/necklaces']" href="">Necklace</a></button>
+            <button type="button" class="list-group-item list-group-item-action"><a [routerLink]="['/bracelets']" href="">Bracelets</a></button>
+            <button type="button" class="list-group-item list-group-item-action" disabled><a [routerLink]="['/earings']" href="">Earings</a></button>
+        </div>             -->
+    </div>
+
+    <div class = "col-md-10 text-center">
+        <div class='row'>
+            <div class='col-sm-12'>
+                <h3>
+                    {{ title }}
+                </h3>
+            </div>
+        </div>
+        <div *ngFor='let abc of productsList | filterByCategory: selectedCategory; let i = index' [ngClass]="{'row': (i+1)%6 == 0}">
+            <div class='col-md-2 col-sm-12' >
+                <div class="thumbnail">
+                    <a routerLink='/products/{{ abc.id }}'
+                        routerLinkActive="active" *ngIf='abc.image'>
+                        <img [src]='abc.image' alt="{{ abc.productName }} image">
+                    </a>
+                    
+                    <div class="caption">
+                        <h4><a  routerLinkActive="active">{{ abc.productName }}</a></h4>
+                     <div>
+
+                            <span class="left">{{ abc.price }} </span>
+
+                     </div>
+                        
+                        <!-- <p><a  routerLinkActive="active" class="btn btn-primary" role="button">add to cart</a></p>     -->
+                        <span class="right">
+                                <a placement="top" mdbTooltip="Quick Look" container="body" [routerLink]="['/products/product', abc.$key]">
+                                    <i class="fa fa-eye"></i>
+                                </a>
+                                <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addFavourite(abc)">
+                                        <i class="fa fa-heart"></i>
+                                </a>
+                                <a placement="top" mdbTooltip="Add to Wishlist" container="body" (click)="addToCart(abc)">
+                                        <i class="fa fa-shopping-cart"></i>
+                                </a>
+                        </span>
+                        
+
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
