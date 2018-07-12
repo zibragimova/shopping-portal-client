@@ -33,11 +33,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cart=this._shoppingCartService.get();
-
-    console.log(this.cart)
-    console.log(this.cartItems)
-  
-  
   this.cartSubscription = this.cart.subscribe((cart) => {
     this.itemCount = cart.items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
     console.log("ITEM COUNT IS   ----"+ this.itemCount)
@@ -55,10 +50,18 @@ export class CartComponent implements OnInit {
                          });
     });
   });
-
-
-  console.log(this.cart)
-  console.log(this.cartItems)
-
   }
+
+  public addProductToCart(product: Product): void {
+    this._shoppingCartService.addItem(product, 1);
+  }
+
+  public removeProductFromCart(product: Product): void {
+    this._shoppingCartService.addItem(product, -1);
+  }
+
+  public emptyCart(): void {
+    this._shoppingCartService.empty();
+  }
+
 }
