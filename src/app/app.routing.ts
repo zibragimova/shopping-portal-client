@@ -20,6 +20,11 @@ const appRoutes: Routes = [
         path:"cart",
         component: CartComponent
     },
+    //https://github.com/zibragimova/shopping-portal-client
+    //https://github.com/zibragimova/shopping-portal-client/main.233ffd64e330db477fae.bundle.js
+    //ng build --prod --base-href "https://USERNAME.github.io/REPOSITORY/" command. 
+
+
     {
         path:"favourite-products",
         component: FavouritesComponent
