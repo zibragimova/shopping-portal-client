@@ -12,7 +12,7 @@ declare var $: any;
 })
 export class NavbarComponent implements OnInit {
  
-  constructor(private router: Router, private productService:ProductsService, private cartService:ShoppingCartService
+  constructor(public router: Router, public productService:ProductsService, public cartService:ShoppingCartService
   ) {}
 
   ngOnInit() {}
