@@ -26,6 +26,7 @@ import { FilterByCategoryPipe } from './pipes/filterByCategory.pipe';
 import { ShoppingCartService } from './services/shopping-cart.service';
 import { LocalStorageService, StorageService } from './services/storage.service';
 import { DeliveryOptionsDataService } from './services/delivery-options.service';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DeliveryOptionsDataService } from './services/delivery-options.service'
     NavbarComponent,
     FilterByCategoryPipe,
     CartComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    CheckoutComponent
   ],
   imports: [
  

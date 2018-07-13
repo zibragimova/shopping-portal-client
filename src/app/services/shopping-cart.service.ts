@@ -50,11 +50,12 @@ export class ShoppingCartService {
   }
    // returning LocalCarts Product Count FOR NAVIG
    calculateLocalCartProdCounts() {
-    this.navbarCartCount = this.retrieve().items.length;
-}
+    this.navbarCartCount = this.retrieve().items.map((x) => x.quantity).reduce((p, n) => p + n, 0);
+   }
 
 
   public addItem(product: Product, quantity: number): void {
+    console.log("THIS IS PRODUCT"+ product);
     const cart = this.retrieve();
     let item = cart.items.find((p) => p.productId === product.productId);
     if (item === undefined) {
@@ -72,7 +73,9 @@ export class ShoppingCartService {
     this.calculateCart(cart);
     this.save(cart);
     this.dispatch(cart);
-    this.calculateLocalCartProdCounts()
+    console.log("THIS IS CART"+ cart.items);
+    this.calculateLocalCartProdCounts();
+    console.log("NAV COUNT ITEM"+ this.navbarCartCount)
   }
 
   public empty(): void {

@@ -15,7 +15,7 @@
                     <p class="js-product-desc">{{item.product.description}}</p>
                     <button type="button" (click)="addProductToCart(item.product, 1)">Add(+1)</button>
                     <!-- *ngIf="productInCart(item.product) | async" -->
-                    <button type="button" (click)="removeProductFromCart(product, 1)">Remove(-1)</button>
+                    <button type="button" (click)="removeProductFromCart(item.product, 1)">Remove(-1)</button>
 
                 </div>
                 <div class="col-md-2  text-right">
@@ -45,11 +45,13 @@
                         </span>
                     </h5>
                     <hr/>
-                    <a class="success button large expanded" [attr.disabled]="itemCount === 0 ? true : null" routerLink="/checkout">Proceed To Checkout</a>
+                    <button type="button" class="" routerLink="/checkout" [attr.disabled]="itemCount === 0 ? true : null">
+                        Proceed to checkout
+                    </button>
                     <hr/>
                      or
                     <hr/>
-                    <button type="button" class="secondary button small expanded js-btn-empty-cart" (click)="emptyCart()" [attr.disabled]="itemCount === 0 ? true : null">
+                    <button type="button" class="" (click)="emptyCart()" [attr.disabled]="itemCount === 0 ? true : null">
                         Empty shopping basket
                     </button>
 

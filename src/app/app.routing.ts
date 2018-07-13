@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProductsListComponent } from './components/all-products/all-products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 
@@ -24,8 +25,8 @@ const appRoutes: Routes = [
         component: FavouritesComponent
     },
     {
-        path:"earings",
-        component: HomeComponent
+        path:"checkout",
+        component: CheckoutComponent
     },
     {
         path:"bracelets",
